@@ -71,7 +71,8 @@ module.exports = function (grunt) {
           middleware: function (connect) {
             return [
               mountFolder(connect, '.tmp'),
-              mountFolder(connect, 'test')
+              mountFolder(connect, 'test'),
+              mountFolder(connect, yeomanConfig.app)
             ];
           }
         }
@@ -248,6 +249,10 @@ module.exports = function (grunt) {
     karma: {
       unit: {
         configFile: 'karma.conf.js',
+        singleRun: true
+      },
+      e2e: {
+        configFile: 'karma-e2e.conf.js',
         singleRun: true
       }
     },
